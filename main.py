@@ -4,7 +4,6 @@
 # A##
 
 
-
 class State:
 
     def __init__(self, x, y, char):
@@ -61,25 +60,25 @@ class Frontier:
         y = state.y
         print(x, y)
         board[x][y] = 'A'
-        if x+1 < board_x_size:
+        if x + 1 < board_x_size:
             if board[x + 1][y] == ' ' or board[x + 1][y] == 'B':
                 self.states.append(
-                    down(state, board[x + 1][y]))
+                    down(State(x, y, ''), board[x + 1][y]))
 
-        if x-1 >= 0:
+        if x - 1 >= 0:
             if board[x - 1][y] == ' ' or board[x - 1][y] == 'B':
                 self.states.append(
-                    up(state, board[x - 1][y]))
+                    up(State(x, y, ''), board[x - 1][y]))
 
-        if y+1 < board_y_size:
+        if y + 1 < board_y_size:
             if board[x][y + 1] == ' ' or board[x][y + 1] == 'B':
                 self.states.append(
-                    right(state, board[x][y + 1]))
+                    right(State(x, y, ''), board[x][y + 1]))
 
-        if y-1 >= 0:
+        if y - 1 >= 0:
             if board[x][y - 1] == ' ' or board[x][y - 1] == 'B':
                 self.states.append(
-                    left(state, board[x][y - 1]))
+                    left(State(x, y, ''), board[x][y - 1]))
 
         self.states.remove(state)
 
@@ -115,9 +114,9 @@ if __name__ == "__main__":
     state = frontier.move(board)
     while state is None and frontier.states.__len__() != 0:
         #for b in range(0, 11):
-         #   for bb in range(0, 11):
-          #      print(board[b][bb], end='')
-           # print()
+        #    for bb in range(0, 11):
+           #     print(board[b][bb], end='')
+          #  print()
         state = frontier.move(board)
 
     for b in range(0, 11):
