@@ -1,10 +1,9 @@
 class State:
 
-    def __init__(self, x, y, char, states):
+    def __init__(self, x, y, char, last_state):
         self.x = x
         self.y = y
-        self.states = states
-        self.states.append(self)
+        self.last_state = last_state
         self.end = False
         self.char = char
 
@@ -12,7 +11,6 @@ class State:
         self.x += x
         self.y += y
         self.char = char
-        self.states.append(self)
         self.end = self.check_end()
         return self
 

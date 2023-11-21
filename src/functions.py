@@ -19,7 +19,7 @@ def right(state, char):
 
 def read_map():
     board = []
-    file = open(os.getcwd().replace("\\src", "\\Maps\\map3.txt"))
+    file = open(os.getcwd().replace("\\src", "\\Maps\\map2.txt"))
     line = file.readline()
     x_start = 0
     y_start = 0
