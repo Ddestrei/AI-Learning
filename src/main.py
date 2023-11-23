@@ -29,10 +29,11 @@ if __name__ == "__main__":
     print()
 
     while state is not None:
-        #print(state.x, " ", state.y)
+        # print(state.x, " ", state.y)
         final_board[state.x][state.y] = 'A'
         state = state.last_state
-
+    else:
+        print("There is no way out!!!")
     print()
 
     for b in range(0, board.__len__()):
